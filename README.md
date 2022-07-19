@@ -1,12 +1,13 @@
 # reportman
-ReportMan VS 2019
-Esta es una versión compilada en VS 2019 a partir de la desacarga de "reportmannet_source_3_4_6.zip" de la página
+.Net Project of https://reportman.sourceforge.io
+
+This is a version compiled in VS 2019 from the "reportmannet_source_3_4_6.zip" download page. Note: Download is not available as of now.
 
 https://sourceforge.net/p/reportman/activity/?page=0&limit=100#615ad5c647012700a256ad7c
 
-incluye la actualización para .Net Framwork 4.6.1
+includes update for .Net Framework 4.6.1
 
-Uso desde un Web API de NET Core 3.1
+Usage from a NET Core 3.1 Web API
 
     using Microsoft.AspNetCore.Mvc;
     using System.IO;
@@ -36,7 +37,7 @@ Uso desde un Web API de NET Core 3.1
             // Perform the conversion from one encoding to the other.
             if (rp.Params.Count > 0)
             {
-                // No funciona el Unicode
+                // Unicode doesn't work
                 string titulo = $"Orden de trabajo {idOT}"; ; // "你好"; // $"Orden de trabajo {idOT}";
                 byte[] unicodeBytes = Encoding.Convert(Encoding.ASCII, Encoding.UTF8, Encoding.ASCII.GetBytes(titulo));
                 rp.Params[0].Value = Encoding.UTF8.GetString(unicodeBytes);
@@ -51,7 +52,7 @@ Uso desde un Web API de NET Core 3.1
                 return File(bytes, "application/pdf", printpdf.FileName);
             }
 
-            // todo: Regresar archivo con falla indicada
+            // todo: Return file with failure indicated
             return null;
         }
       }
