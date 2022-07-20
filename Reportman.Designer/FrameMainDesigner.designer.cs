@@ -106,6 +106,8 @@
             this.bhorizontalgap = new System.Windows.Forms.ToolStripButton();
             this.bverticalgap = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.bEdit = new System.Windows.Forms.ToolStripDropDownButton();
+            this.majustar1_5 = new System.Windows.Forms.ToolStripMenuItem();
             this.bpagesetup = new System.Windows.Forms.ToolStripButton();
             this.bgrid = new System.Windows.Forms.ToolStripButton();
             this.bexecute = new System.Windows.Forms.ToolStripDropDownButton();
@@ -124,8 +126,6 @@
             this.bhideRight = new System.Windows.Forms.ToolStripButton();
             this.bexit = new System.Windows.Forms.ToolStripButton();
             this.openreportdialog = new System.Windows.Forms.OpenFileDialog();
-            this.bEdit = new System.Windows.Forms.ToolStripDropDownButton();
-            this.majustar1_5 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -248,7 +248,7 @@
             this.label2.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.label2.Size = new System.Drawing.Size(273, 26);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Propiedades";
+            this.label2.Text = "Properties";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // splitter2
@@ -362,7 +362,7 @@
             this.label1.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
             this.label1.Size = new System.Drawing.Size(250, 26);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Explorador del informe";
+            this.label1.Text = "Report Explorer";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // TopBar
@@ -411,7 +411,7 @@
             this.bexit});
             this.TopBar.Location = new System.Drawing.Point(3, 0);
             this.TopBar.Name = "TopBar";
-            this.TopBar.Size = new System.Drawing.Size(1336, 26);
+            this.TopBar.Size = new System.Drawing.Size(1332, 26);
             this.TopBar.TabIndex = 1;
             // 
             // bnew
@@ -538,8 +538,8 @@
             this.bzoomplus.Image = global::Reportman.Designer.Properties.Resources.zoom2;
             this.bzoomplus.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.bzoomplus.Name = "bzoomplus";
-            this.bzoomplus.Size = new System.Drawing.Size(72, 23);
-            this.bzoomplus.Text = "Ampliar";
+            this.bzoomplus.Size = new System.Drawing.Size(69, 23);
+            this.bzoomplus.Text = "Enlarge";
             this.bzoomplus.Click += new System.EventHandler(this.ButtonZoomPlusClick);
             // 
             // dropdownzoom
@@ -569,7 +569,7 @@
             // mscale20
             // 
             this.mscale20.Name = "mscale20";
-            this.mscale20.Size = new System.Drawing.Size(180, 22);
+            this.mscale20.Size = new System.Drawing.Size(102, 22);
             this.mscale20.Tag = "20";
             this.mscale20.Text = "20%";
             this.mscale20.Click += new System.EventHandler(this.MenuScale100Click);
@@ -577,7 +577,7 @@
             // mscale40
             // 
             this.mscale40.Name = "mscale40";
-            this.mscale40.Size = new System.Drawing.Size(180, 22);
+            this.mscale40.Size = new System.Drawing.Size(102, 22);
             this.mscale40.Tag = "40";
             this.mscale40.Text = "40%";
             this.mscale40.Click += new System.EventHandler(this.MenuScale100Click);
@@ -585,7 +585,7 @@
             // mscale60
             // 
             this.mscale60.Name = "mscale60";
-            this.mscale60.Size = new System.Drawing.Size(180, 22);
+            this.mscale60.Size = new System.Drawing.Size(102, 22);
             this.mscale60.Tag = "60";
             this.mscale60.Text = "60%";
             this.mscale60.Click += new System.EventHandler(this.MenuScale100Click);
@@ -593,7 +593,7 @@
             // mscale80
             // 
             this.mscale80.Name = "mscale80";
-            this.mscale80.Size = new System.Drawing.Size(180, 22);
+            this.mscale80.Size = new System.Drawing.Size(102, 22);
             this.mscale80.Tag = "80";
             this.mscale80.Text = "80%";
             this.mscale80.Click += new System.EventHandler(this.MenuScale100Click);
@@ -601,7 +601,7 @@
             // mscale100
             // 
             this.mscale100.Name = "mscale100";
-            this.mscale100.Size = new System.Drawing.Size(180, 22);
+            this.mscale100.Size = new System.Drawing.Size(102, 22);
             this.mscale100.Tag = "100";
             this.mscale100.Text = "100%";
             this.mscale100.Click += new System.EventHandler(this.MenuScale100Click);
@@ -609,7 +609,7 @@
             // mscale120
             // 
             this.mscale120.Name = "mscale120";
-            this.mscale120.Size = new System.Drawing.Size(180, 22);
+            this.mscale120.Size = new System.Drawing.Size(102, 22);
             this.mscale120.Tag = "120";
             this.mscale120.Text = "120%";
             this.mscale120.Click += new System.EventHandler(this.MenuScale100Click);
@@ -617,7 +617,7 @@
             // mscale140
             // 
             this.mscale140.Name = "mscale140";
-            this.mscale140.Size = new System.Drawing.Size(180, 22);
+            this.mscale140.Size = new System.Drawing.Size(102, 22);
             this.mscale140.Tag = "140";
             this.mscale140.Text = "140%";
             this.mscale140.Click += new System.EventHandler(this.MenuScale100Click);
@@ -625,7 +625,7 @@
             // mscale160
             // 
             this.mscale160.Name = "mscale160";
-            this.mscale160.Size = new System.Drawing.Size(180, 22);
+            this.mscale160.Size = new System.Drawing.Size(102, 22);
             this.mscale160.Tag = "160";
             this.mscale160.Text = "160%";
             this.mscale160.Click += new System.EventHandler(this.MenuScale100Click);
@@ -633,7 +633,7 @@
             // mscale180
             // 
             this.mscale180.Name = "mscale180";
-            this.mscale180.Size = new System.Drawing.Size(180, 22);
+            this.mscale180.Size = new System.Drawing.Size(102, 22);
             this.mscale180.Tag = "180";
             this.mscale180.Text = "180%";
             this.mscale180.Click += new System.EventHandler(this.MenuScale100Click);
@@ -641,7 +641,7 @@
             // mscale200
             // 
             this.mscale200.Name = "mscale200";
-            this.mscale200.Size = new System.Drawing.Size(180, 22);
+            this.mscale200.Size = new System.Drawing.Size(102, 22);
             this.mscale200.Tag = "200";
             this.mscale200.Text = "200%";
             this.mscale200.Click += new System.EventHandler(this.MenuScale100Click);
@@ -649,7 +649,7 @@
             // mscale225
             // 
             this.mscale225.Name = "mscale225";
-            this.mscale225.Size = new System.Drawing.Size(180, 22);
+            this.mscale225.Size = new System.Drawing.Size(102, 22);
             this.mscale225.Tag = "225";
             this.mscale225.Text = "225%";
             this.mscale225.Click += new System.EventHandler(this.MenuScale100Click);
@@ -657,7 +657,7 @@
             // mscale250
             // 
             this.mscale250.Name = "mscale250";
-            this.mscale250.Size = new System.Drawing.Size(180, 22);
+            this.mscale250.Size = new System.Drawing.Size(102, 22);
             this.mscale250.Tag = "250";
             this.mscale250.Text = "250%";
             this.mscale250.Click += new System.EventHandler(this.MenuScale100Click);
@@ -665,7 +665,7 @@
             // mscale275
             // 
             this.mscale275.Name = "mscale275";
-            this.mscale275.Size = new System.Drawing.Size(180, 22);
+            this.mscale275.Size = new System.Drawing.Size(102, 22);
             this.mscale275.Tag = "275";
             this.mscale275.Text = "275%";
             this.mscale275.Click += new System.EventHandler(this.MenuScale100Click);
@@ -673,7 +673,7 @@
             // mscale300
             // 
             this.mscale300.Name = "mscale300";
-            this.mscale300.Size = new System.Drawing.Size(180, 22);
+            this.mscale300.Size = new System.Drawing.Size(102, 22);
             this.mscale300.Tag = "300";
             this.mscale300.Text = "300%";
             this.mscale300.Click += new System.EventHandler(this.MenuScale100Click);
@@ -681,7 +681,7 @@
             // mscale350
             // 
             this.mscale350.Name = "mscale350";
-            this.mscale350.Size = new System.Drawing.Size(180, 22);
+            this.mscale350.Size = new System.Drawing.Size(102, 22);
             this.mscale350.Tag = "350";
             this.mscale350.Text = "350%";
             this.mscale350.Click += new System.EventHandler(this.MenuScale100Click);
@@ -689,7 +689,7 @@
             // mscale400
             // 
             this.mscale400.Name = "mscale400";
-            this.mscale400.Size = new System.Drawing.Size(180, 22);
+            this.mscale400.Size = new System.Drawing.Size(102, 22);
             this.mscale400.Tag = "400";
             this.mscale400.Text = "400%";
             this.mscale400.Click += new System.EventHandler(this.MenuScale100Click);
@@ -699,8 +699,8 @@
             this.bzoomminus.Image = global::Reportman.Designer.Properties.Resources.zoom1;
             this.bzoomminus.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.bzoomminus.Name = "bzoomminus";
-            this.bzoomminus.Size = new System.Drawing.Size(70, 23);
-            this.bzoomminus.Text = "Reducir";
+            this.bzoomminus.Size = new System.Drawing.Size(69, 23);
+            this.bzoomminus.Text = "Reduce";
             this.bzoomminus.Click += new System.EventHandler(this.ButtonZoomMinusClick);
             // 
             // toolStripSeparator5
@@ -896,6 +896,24 @@
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 26);
             // 
+            // bEdit
+            // 
+            this.bEdit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.bEdit.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.majustar1_5});
+            this.bEdit.Image = ((System.Drawing.Image)(resources.GetObject("bEdit.Image")));
+            this.bEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.bEdit.Name = "bEdit";
+            this.bEdit.Size = new System.Drawing.Size(59, 23);
+            this.bEdit.Text = "Edición";
+            // 
+            // majustar1_5
+            // 
+            this.majustar1_5.Name = "majustar1_5";
+            this.majustar1_5.Size = new System.Drawing.Size(180, 22);
+            this.majustar1_5.Text = "Ajustar 1/6 pulgada";
+            this.majustar1_5.Click += new System.EventHandler(this.majustar1_5_Click);
+            // 
             // bpagesetup
             // 
             this.bpagesetup.Image = global::Reportman.Designer.Properties.Resources.pagesetup;
@@ -1032,24 +1050,6 @@
             this.bexit.Size = new System.Drawing.Size(23, 23);
             this.bexit.Text = "Exit";
             this.bexit.Click += new System.EventHandler(this.ButtonExitClick);
-            // 
-            // bEdit
-            // 
-            this.bEdit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.bEdit.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.majustar1_5});
-            this.bEdit.Image = ((System.Drawing.Image)(resources.GetObject("bEdit.Image")));
-            this.bEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.bEdit.Name = "bEdit";
-            this.bEdit.Size = new System.Drawing.Size(59, 23);
-            this.bEdit.Text = "Edición";
-            // 
-            // majustar1_5
-            // 
-            this.majustar1_5.Name = "majustar1_5";
-            this.majustar1_5.Size = new System.Drawing.Size(180, 22);
-            this.majustar1_5.Text = "Ajustar 1/6 pulgada";
-            this.majustar1_5.Click += new System.EventHandler(this.majustar1_5_Click);
             // 
             // FrameMainDesigner
             // 

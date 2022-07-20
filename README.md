@@ -5,7 +5,7 @@ This is a version compiled in VS 2019 from the "reportmannet_source_3_4_6.zip" d
 
 https://sourceforge.net/p/reportman/activity/?page=0&limit=100#615ad5c647012700a256ad7c
 
-includes update for .Net Framework 4.6.1
+Project upgraded to .Net Framework 4.8
 
 Usage from a NET Core 3.1 Web API
 
