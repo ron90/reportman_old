@@ -7,6 +7,10 @@ https://sourceforge.net/p/reportman/activity/?page=0&limit=100#615ad5c647012700a
 
 Project upgraded to .Net Framework 4.8
 
+## Enhancements
+* Added move buttons (left, right, up, down) in designer to precisely move all selected controls (across multiple sections) with snap to grid functionality.
+
+
 Usage from a NET Core 3.1 Web API
 
     using Microsoft.AspNetCore.Mvc;

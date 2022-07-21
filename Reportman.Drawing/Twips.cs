@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Drawing;
 
 namespace Reportman.Drawing
 {
@@ -25,6 +25,12 @@ namespace Reportman.Drawing
         {
             nx = ((nx + gridx / 2) / gridx) * gridx;
             return nx;
+        }
+        // RONAK MoveControls - This method copied from old code of reportmannet 3.1
+        public static Point AlignToGridTwips(Point npoint, int gridx, int gridy)
+        {
+            npoint = new Point(((npoint.X + gridx / 2) / gridx) * gridx, ((npoint.Y + gridy / 2) / gridy) * gridy);
+            return npoint;
         }
         /// <summary>
         /// Helper to convert Twips to centimeters

@@ -51,22 +51,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.TopBar = new System.Windows.Forms.ToolStrip();
-            this.bnew = new System.Windows.Forms.ToolStripButton();
-            this.bopen = new System.Windows.Forms.ToolStripSplitButton();
-            this.mopen = new System.Windows.Forms.ToolStripMenuItem();
-            this.mopenfromlib = new System.Windows.Forms.ToolStripMenuItem();
-            this.msetuplib = new System.Windows.Forms.ToolStripMenuItem();
             this.bsep1 = new System.Windows.Forms.ToolStripSeparator();
-            this.bsave = new System.Windows.Forms.ToolStripSplitButton();
-            this.msave = new System.Windows.Forms.ToolStripMenuItem();
-            this.msaveas = new System.Windows.Forms.ToolStripMenuItem();
-            this.msavetolibrary = new System.Windows.Forms.ToolStripMenuItem();
-            this.msetuplib2 = new System.Windows.Forms.ToolStripMenuItem();
             this.bsep2 = new System.Windows.Forms.ToolStripSeparator();
-            this.bpreview = new System.Windows.Forms.ToolStripButton();
-            this.bprint = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-            this.bzoomplus = new System.Windows.Forms.ToolStripButton();
             this.dropdownzoom = new System.Windows.Forms.ToolStripDropDownButton();
             this.mscale20 = new System.Windows.Forms.ToolStripMenuItem();
             this.mscale40 = new System.Windows.Forms.ToolStripMenuItem();
@@ -84,13 +71,32 @@
             this.mscale300 = new System.Windows.Forms.ToolStripMenuItem();
             this.mscale350 = new System.Windows.Forms.ToolStripMenuItem();
             this.mscale400 = new System.Windows.Forms.ToolStripMenuItem();
-            this.bzoomminus = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.openreportdialog = new System.Windows.Forms.OpenFileDialog();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.bnew = new System.Windows.Forms.ToolStripButton();
+            this.bopen = new System.Windows.Forms.ToolStripSplitButton();
+            this.mopen = new System.Windows.Forms.ToolStripMenuItem();
+            this.mopenfromlib = new System.Windows.Forms.ToolStripMenuItem();
+            this.msetuplib = new System.Windows.Forms.ToolStripMenuItem();
+            this.bsave = new System.Windows.Forms.ToolStripSplitButton();
+            this.msave = new System.Windows.Forms.ToolStripMenuItem();
+            this.msaveas = new System.Windows.Forms.ToolStripMenuItem();
+            this.msavetolibrary = new System.Windows.Forms.ToolStripMenuItem();
+            this.msetuplib2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.bpreview = new System.Windows.Forms.ToolStripButton();
+            this.bprint = new System.Windows.Forms.ToolStripButton();
+            this.bzoomplus = new System.Windows.Forms.ToolStripButton();
+            this.bzoomminus = new System.Windows.Forms.ToolStripButton();
             this.bcopy = new System.Windows.Forms.ToolStripButton();
             this.bpaste = new System.Windows.Forms.ToolStripButton();
             this.bcut = new System.Windows.Forms.ToolStripButton();
             this.bdelete = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.bmoveleft = new System.Windows.Forms.ToolStripButton();
+            this.bmoveright = new System.Windows.Forms.ToolStripButton();
             this.barrow = new System.Windows.Forms.ToolStripButton();
             this.blabel = new System.Windows.Forms.ToolStripButton();
             this.bexpression = new System.Windows.Forms.ToolStripButton();
@@ -98,14 +104,12 @@
             this.bshape = new System.Windows.Forms.ToolStripButton();
             this.bchart = new System.Windows.Forms.ToolStripButton();
             this.bbarcode = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.balignleft = new System.Windows.Forms.ToolStripButton();
             this.balignright = new System.Windows.Forms.ToolStripButton();
             this.baligntop = new System.Windows.Forms.ToolStripButton();
             this.balignbottom = new System.Windows.Forms.ToolStripButton();
             this.bhorizontalgap = new System.Windows.Forms.ToolStripButton();
             this.bverticalgap = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.bEdit = new System.Windows.Forms.ToolStripDropDownButton();
             this.majustar1_5 = new System.Windows.Forms.ToolStripMenuItem();
             this.bpagesetup = new System.Windows.Forms.ToolStripButton();
@@ -125,7 +129,8 @@
             this.mtextfile2 = new System.Windows.Forms.ToolStripMenuItem();
             this.bhideRight = new System.Windows.Forms.ToolStripButton();
             this.bexit = new System.Windows.Forms.ToolStripButton();
-            this.openreportdialog = new System.Windows.Forms.OpenFileDialog();
+            this.bmoveup = new System.Windows.Forms.ToolStripButton();
+            this.bmovedown = new System.Windows.Forms.ToolStripButton();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -387,6 +392,11 @@
             this.bpaste,
             this.bcut,
             this.bdelete,
+            this.toolStripSeparator3,
+            this.bmoveleft,
+            this.bmoveright,
+            this.bmoveup,
+            this.bmovedown,
             this.toolStripSeparator1,
             this.barrow,
             this.blabel,
@@ -411,136 +421,23 @@
             this.bexit});
             this.TopBar.Location = new System.Drawing.Point(3, 0);
             this.TopBar.Name = "TopBar";
-            this.TopBar.Size = new System.Drawing.Size(1332, 26);
+            this.TopBar.Size = new System.Drawing.Size(1401, 26);
             this.TopBar.TabIndex = 1;
-            // 
-            // bnew
-            // 
-            this.bnew.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bnew.Image = global::Reportman.Designer.Properties.Resources.newdocument;
-            this.bnew.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.bnew.Name = "bnew";
-            this.bnew.Size = new System.Drawing.Size(23, 23);
-            this.bnew.Text = "New";
-            this.bnew.Click += new System.EventHandler(this.ButtonNewClick);
-            // 
-            // bopen
-            // 
-            this.bopen.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bopen.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mopen,
-            this.mopenfromlib,
-            this.msetuplib});
-            this.bopen.Image = global::Reportman.Designer.Properties.Resources.open;
-            this.bopen.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.bopen.Name = "bopen";
-            this.bopen.Size = new System.Drawing.Size(35, 23);
-            this.bopen.Text = "Open";
-            // 
-            // mopen
-            // 
-            this.mopen.Name = "mopen";
-            this.mopen.Size = new System.Drawing.Size(168, 22);
-            this.mopen.Text = "Open";
-            this.mopen.Click += new System.EventHandler(this.ButtonOpenClick);
-            // 
-            // mopenfromlib
-            // 
-            this.mopenfromlib.Name = "mopenfromlib";
-            this.mopenfromlib.Size = new System.Drawing.Size(168, 22);
-            this.mopenfromlib.Text = "Open from library";
-            this.mopenfromlib.Click += new System.EventHandler(this.ButtonOpenFromLibClick);
-            // 
-            // msetuplib
-            // 
-            this.msetuplib.Name = "msetuplib";
-            this.msetuplib.Size = new System.Drawing.Size(168, 22);
-            this.msetuplib.Text = "Setup libraries";
-            this.msetuplib.Click += new System.EventHandler(this.ButtonSetupLibClick);
             // 
             // bsep1
             // 
             this.bsep1.Name = "bsep1";
             this.bsep1.Size = new System.Drawing.Size(6, 26);
             // 
-            // bsave
-            // 
-            this.bsave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bsave.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.msave,
-            this.msaveas,
-            this.msavetolibrary,
-            this.msetuplib2});
-            this.bsave.Image = global::Reportman.Designer.Properties.Resources.save;
-            this.bsave.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.bsave.Name = "bsave";
-            this.bsave.Size = new System.Drawing.Size(35, 23);
-            this.bsave.Text = "Save";
-            this.bsave.ButtonClick += new System.EventHandler(this.ButtonSaveClick);
-            // 
-            // msave
-            // 
-            this.msave.Name = "msave";
-            this.msave.Size = new System.Drawing.Size(148, 22);
-            this.msave.Text = "Save";
-            // 
-            // msaveas
-            // 
-            this.msaveas.Name = "msaveas";
-            this.msaveas.Size = new System.Drawing.Size(148, 22);
-            this.msaveas.Text = "Save as...";
-            this.msaveas.Click += new System.EventHandler(this.ButtonSaveAsClick);
-            // 
-            // msavetolibrary
-            // 
-            this.msavetolibrary.Name = "msavetolibrary";
-            this.msavetolibrary.Size = new System.Drawing.Size(148, 22);
-            this.msavetolibrary.Text = "Save to library";
-            // 
-            // msetuplib2
-            // 
-            this.msetuplib2.Name = "msetuplib2";
-            this.msetuplib2.Size = new System.Drawing.Size(148, 22);
-            this.msetuplib2.Text = "Setup libraries";
-            // 
             // bsep2
             // 
             this.bsep2.Name = "bsep2";
             this.bsep2.Size = new System.Drawing.Size(6, 26);
             // 
-            // bpreview
-            // 
-            this.bpreview.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bpreview.Image = global::Reportman.Designer.Properties.Resources.preview2;
-            this.bpreview.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.bpreview.Name = "bpreview";
-            this.bpreview.Size = new System.Drawing.Size(23, 23);
-            this.bpreview.Text = "Preview";
-            this.bpreview.Click += new System.EventHandler(this.ButtonPreviewClick);
-            // 
-            // bprint
-            // 
-            this.bprint.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bprint.Image = global::Reportman.Designer.Properties.Resources.print;
-            this.bprint.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.bprint.Name = "bprint";
-            this.bprint.Size = new System.Drawing.Size(23, 23);
-            this.bprint.Text = "Print";
-            this.bprint.Click += new System.EventHandler(this.ButtonPrintClick);
-            // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
             this.toolStripSeparator6.Size = new System.Drawing.Size(6, 26);
-            // 
-            // bzoomplus
-            // 
-            this.bzoomplus.Image = global::Reportman.Designer.Properties.Resources.zoom2;
-            this.bzoomplus.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.bzoomplus.Name = "bzoomplus";
-            this.bzoomplus.Size = new System.Drawing.Size(69, 23);
-            this.bzoomplus.Text = "Enlarge";
-            this.bzoomplus.Click += new System.EventHandler(this.ButtonZoomPlusClick);
             // 
             // dropdownzoom
             // 
@@ -694,6 +591,144 @@
             this.mscale400.Text = "400%";
             this.mscale400.Click += new System.EventHandler(this.MenuScale100Click);
             // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 26);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 26);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 26);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 26);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 26);
+            // 
+            // bnew
+            // 
+            this.bnew.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bnew.Image = global::Reportman.Designer.Properties.Resources.newdocument;
+            this.bnew.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.bnew.Name = "bnew";
+            this.bnew.Size = new System.Drawing.Size(23, 23);
+            this.bnew.Text = "New";
+            this.bnew.Click += new System.EventHandler(this.ButtonNewClick);
+            // 
+            // bopen
+            // 
+            this.bopen.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bopen.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mopen,
+            this.mopenfromlib,
+            this.msetuplib});
+            this.bopen.Image = global::Reportman.Designer.Properties.Resources.open;
+            this.bopen.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.bopen.Name = "bopen";
+            this.bopen.Size = new System.Drawing.Size(35, 23);
+            this.bopen.Text = "Open";
+            // 
+            // mopen
+            // 
+            this.mopen.Name = "mopen";
+            this.mopen.Size = new System.Drawing.Size(168, 22);
+            this.mopen.Text = "Open";
+            this.mopen.Click += new System.EventHandler(this.ButtonOpenClick);
+            // 
+            // mopenfromlib
+            // 
+            this.mopenfromlib.Name = "mopenfromlib";
+            this.mopenfromlib.Size = new System.Drawing.Size(168, 22);
+            this.mopenfromlib.Text = "Open from library";
+            this.mopenfromlib.Click += new System.EventHandler(this.ButtonOpenFromLibClick);
+            // 
+            // msetuplib
+            // 
+            this.msetuplib.Name = "msetuplib";
+            this.msetuplib.Size = new System.Drawing.Size(168, 22);
+            this.msetuplib.Text = "Setup libraries";
+            this.msetuplib.Click += new System.EventHandler(this.ButtonSetupLibClick);
+            // 
+            // bsave
+            // 
+            this.bsave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bsave.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.msave,
+            this.msaveas,
+            this.msavetolibrary,
+            this.msetuplib2});
+            this.bsave.Image = global::Reportman.Designer.Properties.Resources.save;
+            this.bsave.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.bsave.Name = "bsave";
+            this.bsave.Size = new System.Drawing.Size(35, 23);
+            this.bsave.Text = "Save";
+            this.bsave.ButtonClick += new System.EventHandler(this.ButtonSaveClick);
+            // 
+            // msave
+            // 
+            this.msave.Name = "msave";
+            this.msave.Size = new System.Drawing.Size(148, 22);
+            this.msave.Text = "Save";
+            // 
+            // msaveas
+            // 
+            this.msaveas.Name = "msaveas";
+            this.msaveas.Size = new System.Drawing.Size(148, 22);
+            this.msaveas.Text = "Save as...";
+            this.msaveas.Click += new System.EventHandler(this.ButtonSaveAsClick);
+            // 
+            // msavetolibrary
+            // 
+            this.msavetolibrary.Name = "msavetolibrary";
+            this.msavetolibrary.Size = new System.Drawing.Size(148, 22);
+            this.msavetolibrary.Text = "Save to library";
+            // 
+            // msetuplib2
+            // 
+            this.msetuplib2.Name = "msetuplib2";
+            this.msetuplib2.Size = new System.Drawing.Size(148, 22);
+            this.msetuplib2.Text = "Setup libraries";
+            // 
+            // bpreview
+            // 
+            this.bpreview.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bpreview.Image = global::Reportman.Designer.Properties.Resources.preview2;
+            this.bpreview.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.bpreview.Name = "bpreview";
+            this.bpreview.Size = new System.Drawing.Size(23, 23);
+            this.bpreview.Text = "Preview";
+            this.bpreview.Click += new System.EventHandler(this.ButtonPreviewClick);
+            // 
+            // bprint
+            // 
+            this.bprint.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bprint.Image = global::Reportman.Designer.Properties.Resources.print;
+            this.bprint.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.bprint.Name = "bprint";
+            this.bprint.Size = new System.Drawing.Size(23, 23);
+            this.bprint.Text = "Print";
+            this.bprint.Click += new System.EventHandler(this.ButtonPrintClick);
+            // 
+            // bzoomplus
+            // 
+            this.bzoomplus.Image = global::Reportman.Designer.Properties.Resources.zoom2;
+            this.bzoomplus.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.bzoomplus.Name = "bzoomplus";
+            this.bzoomplus.Size = new System.Drawing.Size(69, 23);
+            this.bzoomplus.Text = "Enlarge";
+            this.bzoomplus.Click += new System.EventHandler(this.ButtonZoomPlusClick);
+            // 
             // bzoomminus
             // 
             this.bzoomminus.Image = global::Reportman.Designer.Properties.Resources.zoom1;
@@ -702,11 +737,6 @@
             this.bzoomminus.Size = new System.Drawing.Size(69, 23);
             this.bzoomminus.Text = "Reduce";
             this.bzoomminus.Click += new System.EventHandler(this.ButtonZoomMinusClick);
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 26);
             // 
             // bcopy
             // 
@@ -748,10 +778,27 @@
             this.bdelete.Text = "Delete";
             this.bdelete.Click += new System.EventHandler(this.ButtonDeleteClick);
             // 
-            // toolStripSeparator1
+            // bmoveleft
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 26);
+            this.bmoveleft.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bmoveleft.Image = global::Reportman.Designer.Properties.Resources.arrowleft;
+            this.bmoveleft.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.bmoveleft.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.bmoveleft.Name = "bmoveleft";
+            this.bmoveleft.Size = new System.Drawing.Size(23, 23);
+            this.bmoveleft.Text = "Move Left";
+            this.bmoveleft.Click += new System.EventHandler(this.bmoveleft_Click);
+            // 
+            // bmoveright
+            // 
+            this.bmoveright.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bmoveright.Image = global::Reportman.Designer.Properties.Resources.arrowright;
+            this.bmoveright.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.bmoveright.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.bmoveright.Name = "bmoveright";
+            this.bmoveright.Size = new System.Drawing.Size(23, 23);
+            this.bmoveright.Text = "Move Right";
+            this.bmoveright.Click += new System.EventHandler(this.bmoveright_Click);
             // 
             // barrow
             // 
@@ -826,11 +873,6 @@
             this.bbarcode.Text = "Barcode";
             this.bbarcode.Click += new System.EventHandler(this.ButtonArrowClick);
             // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 26);
-            // 
             // balignleft
             // 
             this.balignleft.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -891,11 +933,6 @@
             this.bverticalgap.Text = "Align vertical gap";
             this.bverticalgap.Click += new System.EventHandler(this.ButgtonVerticalGapClick);
             // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 26);
-            // 
             // bEdit
             // 
             this.bEdit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
@@ -910,7 +947,7 @@
             // majustar1_5
             // 
             this.majustar1_5.Name = "majustar1_5";
-            this.majustar1_5.Size = new System.Drawing.Size(180, 22);
+            this.majustar1_5.Size = new System.Drawing.Size(177, 22);
             this.majustar1_5.Text = "Ajustar 1/6 pulgada";
             this.majustar1_5.Click += new System.EventHandler(this.majustar1_5_Click);
             // 
@@ -958,7 +995,7 @@
             // 
             this.bexport.Image = global::Reportman.Designer.Properties.Resources.document32;
             this.bexport.Name = "bexport";
-            this.bexport.Size = new System.Drawing.Size(244, 22);
+            this.bexport.Size = new System.Drawing.Size(247, 26);
             this.bexport.Text = "Report File";
             this.bexport.Visible = false;
             this.bexport.Click += new System.EventHandler(this.ButtonExportClick);
@@ -967,68 +1004,68 @@
             // 
             this.madobepdf.Image = global::Reportman.Designer.Properties.Resources.pdf;
             this.madobepdf.Name = "madobepdf";
-            this.madobepdf.Size = new System.Drawing.Size(244, 22);
+            this.madobepdf.Size = new System.Drawing.Size(247, 26);
             this.madobepdf.Text = "Adobe PDF file";
             // 
             // mpdffile2
             // 
             this.mpdffile2.Image = global::Reportman.Designer.Properties.Resources.pdf;
             this.mpdffile2.Name = "mpdffile2";
-            this.mpdffile2.Size = new System.Drawing.Size(244, 22);
+            this.mpdffile2.Size = new System.Drawing.Size(247, 26);
             this.mpdffile2.Text = "PDF file (uncompressed)";
             // 
             // mmetafile
             // 
             this.mmetafile.Name = "mmetafile";
-            this.mmetafile.Size = new System.Drawing.Size(244, 22);
+            this.mmetafile.Size = new System.Drawing.Size(247, 26);
             this.mmetafile.Text = "Report metafile";
             // 
             // mmetafile2
             // 
             this.mmetafile2.Name = "mmetafile2";
-            this.mmetafile2.Size = new System.Drawing.Size(244, 22);
+            this.mmetafile2.Size = new System.Drawing.Size(247, 26);
             this.mmetafile2.Text = "Report metafile (uncompressed)";
             // 
             // mtextfile
             // 
             this.mtextfile.Name = "mtextfile";
-            this.mtextfile.Size = new System.Drawing.Size(244, 22);
+            this.mtextfile.Size = new System.Drawing.Size(247, 26);
             this.mtextfile.Text = "Text file";
             // 
             // mcsv
             // 
             this.mcsv.Name = "mcsv";
-            this.mcsv.Size = new System.Drawing.Size(244, 22);
+            this.mcsv.Size = new System.Drawing.Size(247, 26);
             this.mcsv.Text = "Comma separated values";
             // 
             // mimagefile
             // 
             this.mimagefile.Name = "mimagefile";
-            this.mimagefile.Size = new System.Drawing.Size(244, 22);
+            this.mimagefile.Size = new System.Drawing.Size(247, 26);
             this.mimagefile.Text = "Bitmap file";
             // 
             // mhtmlfile
             // 
             this.mhtmlfile.Name = "mhtmlfile";
-            this.mhtmlfile.Size = new System.Drawing.Size(244, 22);
+            this.mhtmlfile.Size = new System.Drawing.Size(247, 26);
             this.mhtmlfile.Text = "Html file";
             // 
             // mhtml2
             // 
             this.mhtml2.Name = "mhtml2";
-            this.mhtml2.Size = new System.Drawing.Size(244, 22);
+            this.mhtml2.Size = new System.Drawing.Size(247, 26);
             this.mhtml2.Text = "Html file (one file)";
             // 
             // msvgfile
             // 
             this.msvgfile.Name = "msvgfile";
-            this.msvgfile.Size = new System.Drawing.Size(244, 22);
+            this.msvgfile.Size = new System.Drawing.Size(247, 26);
             this.msvgfile.Text = "SVG file";
             // 
             // mtextfile2
             // 
             this.mtextfile2.Name = "mtextfile2";
-            this.mtextfile2.Size = new System.Drawing.Size(244, 22);
+            this.mtextfile2.Size = new System.Drawing.Size(247, 26);
             this.mtextfile2.Text = "Custom text file";
             // 
             // bhideRight
@@ -1050,6 +1087,28 @@
             this.bexit.Size = new System.Drawing.Size(23, 23);
             this.bexit.Text = "Exit";
             this.bexit.Click += new System.EventHandler(this.ButtonExitClick);
+            // 
+            // bmoveup
+            // 
+            this.bmoveup.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bmoveup.Image = global::Reportman.Designer.Properties.Resources.arrowup;
+            this.bmoveup.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.bmoveup.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.bmoveup.Name = "bmoveup";
+            this.bmoveup.Size = new System.Drawing.Size(23, 23);
+            this.bmoveup.Text = "Move Up";
+            this.bmoveup.Click += new System.EventHandler(this.bmoveup_Click);
+            // 
+            // bmovedown
+            // 
+            this.bmovedown.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bmovedown.Image = global::Reportman.Designer.Properties.Resources.arrowdown;
+            this.bmovedown.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.bmovedown.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.bmovedown.Name = "bmovedown";
+            this.bmovedown.Size = new System.Drawing.Size(23, 23);
+            this.bmovedown.Text = "Move Down";
+            this.bmovedown.Click += new System.EventHandler(this.bmovedown_Click);
             // 
             // FrameMainDesigner
             // 
@@ -1179,5 +1238,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ToolStripDropDownButton bEdit;
         private System.Windows.Forms.ToolStripMenuItem majustar1_5;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripButton bmoveleft;
+        private System.Windows.Forms.ToolStripButton bmoveright;
+        private System.Windows.Forms.ToolStripButton bmoveup;
+        private System.Windows.Forms.ToolStripButton bmovedown;
     }
 }

@@ -204,7 +204,11 @@ namespace Reportman.Designer
             {
                 bdelete,
                 bcut,
-                bcopy
+                bcopy,
+                bmoveleft,      // RONAK MoveControls
+                bmoveright,     // RONAK MoveControls
+                bmoveup,        // RONAK MoveControls
+                bmovedown       // RONAK MoveControls
             };
 
             TwoSelectedButtons = new List<ToolStripItem>
@@ -847,6 +851,26 @@ namespace Reportman.Designer
             ButtonCopyClick(this, null);
             ButtonDeleteClick(this, null);
         }
+
+        // RONAK - Move Selected Controls by menu buttons
+        #region "Move Selected Controls"        
+        private void bmoveleft_Click(object sender, EventArgs e)
+        {
+            subreportedit.MoveControlsLeft();
+        }
+        private void bmoveright_Click(object sender, EventArgs e)
+        {
+            subreportedit.MoveControlsRight();
+        }
+        private void bmoveup_Click(object sender, EventArgs e)
+        {
+            subreportedit.MoveControlsUp();
+        }
+        private void bmovedown_Click(object sender, EventArgs e)
+        {
+            subreportedit.MoveControlsDown();
+        }
+        #endregion
 
         private void ButtonAlignLeftClick(object sender, EventArgs e)
         {
