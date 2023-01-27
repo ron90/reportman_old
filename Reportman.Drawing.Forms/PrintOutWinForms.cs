@@ -60,7 +60,7 @@ namespace Reportman.Drawing.Forms
         {
             ShowEmptyReportMessage = true;
             MailEvent = new SendMailEvent(SendMailPdf);
-            WindowMode = PreviewWindowMode.ModalForm;
+            WindowMode = PreviewWindowMode.ModalForm;            
         }
         public bool LargeButtons;
         private bool FPreview;
@@ -71,7 +71,7 @@ namespace Reportman.Drawing.Forms
         public bool ShowInTaskbar;
         /// <summary>
         /// Set preview if you want the output on the screen
-        /// </summary>
+        /// </summary>       
         public bool Preview
         {
             get
@@ -300,8 +300,8 @@ namespace Reportman.Drawing.Forms
                             {
                                 using (PrintPreviewDialog previewdia = new PrintPreviewDialog())
                                 {
-                                    previewdia.Document = doc;
-                                    previewdia.ShowDialog();
+                                    previewdia.Document = doc;            
+                                    previewdia.ShowDialog();                                    
                                 }
                             }
                             else
@@ -318,7 +318,7 @@ namespace Reportman.Drawing.Forms
                                 previewmetafile.SetDriver(this);
                                 PreviewWindow.WindowMode = WindowMode;
                                 PreviewWindow.ShowInTaskbar = ShowInTaskbar;
-                                PreviewWindow.LargeButtons = LargeButtons;
+                                PreviewWindow.LargeButtons = LargeButtons;                               
                                 PreviewWindow.PreviewReport(previewmetafile);
                             }
 #endif

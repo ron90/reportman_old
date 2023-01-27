@@ -19,7 +19,7 @@ namespace Reportman.Drawing
         public int LFontNameS;
         /// <summary>Windows Font Name position in MetaPage strings pool</summary>
         public int WFontNameP;
-        /// <summary>Linux Font Name length</summary>
+        /// <summary>Windows Font Name length</summary>
         public int WFontNameS;
         /// <summary>Font size in points</summary>
         public short FontSize;

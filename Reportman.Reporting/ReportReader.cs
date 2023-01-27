@@ -1400,7 +1400,38 @@ namespace Reportman.Reporting
 						compt.PrintStep = (PrintStepType)GetAsInteger();
 						assigned = true;
 						break;
-				}
+
+#if HIGHLIGHT       // RONAK - Highlighting feature
+                    case "HIGHLIGHTCONDITION":
+                        compt.HighlightCondition = GetAsString();
+                        assigned = true;
+                        break;
+                    case "HIGHLIGHTFONTNAME":
+                        compt.HighlightFontName = GetAsString();
+                        assigned = true;
+                        break;
+                    case "HIGHLIGHTFONTSIZE":
+                        compt.FontSize = (short)GetAsInteger();
+                        assigned = true;
+                        break;
+                    case "HIGHLIGHTFONTSTYLE":
+                        compt.HighlightFontStyle = GetAsInteger();
+                        assigned = true;
+                        break;
+                    case "HIGHLIGHTFONTCOLOR":
+                        compt.HighlightFontColor = GetAsInteger();
+                        assigned = true;
+                        break;
+                    case "HIGHLIGHTBACKCOLOR":
+                        compt.HighlightBackColor = GetAsInteger();
+                        assigned = true;
+                        break;
+                    case "HIGHLIGHTTRANSPARENT":
+                        compt.HighlightTransparent = GetAsBool();
+                        assigned = true;
+                        break;
+#endif
+                }
 			}
 			if (assigned)
 				return;
@@ -2084,9 +2115,19 @@ namespace Reportman.Reporting
 				//                WritePropertyBool("RIGHTTOLEFT",compt.RightToLeft,astream);
 				WritePropertyBool("MULTIPAGE", compt.MultiPage, astream);
 				WritePropertyI("PRINTSTEP", (int)compt.PrintStep, astream);
-			}
-			// TRpLabel
-			if (comp is LabelItem)
+
+#if HIGHLIGHT       // RONAK - Highlighting feature
+                WritePropertyS("HIGHLIGHTCONDITION", compt.HighlightCondition, astream);
+                WritePropertyS("HIGHLIGHTFONTNAME", compt.HighlightFontName, astream);
+                WritePropertyI("HIGHLIGHTFONTSIZE", compt.HighlightFontSize, astream);
+                WritePropertyI("HIGHLIGHTFONTSTYLE", compt.HighlightFontStyle, astream);
+                WritePropertyI("HIGHLIGHTFONTCOLOR", compt.HighlightFontColor, astream);
+                WritePropertyI("HIGHLIGHTBACKCOLOR", compt.HighlightBackColor, astream);
+                WritePropertyBool("HIGHLIGHTTRANSPARENT", compt.HighlightTransparent, astream);
+#endif
+            }
+            // TRpLabel
+            if (comp is LabelItem)
 			{
 				LabelItem compl = (LabelItem)comp;
 				WritePropertyS("WIDETEXT", compl.AllStrings.Text, astream);

@@ -2153,7 +2153,11 @@ namespace Reportman.Designer
             // not in the control, then Keyboard events are not fired.
             // shifting the focus here may affect some other functionality which has not been tested
             //this.Focus();     // It doesn't work
-            parentcontrol.Focus();      // It works
+            
+            // Below line commented by me on 25/01/2023 because
+            // There was DataGridView DataRow EndEdit error when navigating to between properties. Controls are moving after commenting this also,
+            // Maybe there would have been some changes related to it in this new .net version of code (Move controls functionality was added in old .net code and then copied here)
+            //parentcontrol.Focus();      // It works
         }
     private Rectangle SelSetBounds(Rectangle newvalue)
     {

@@ -90,12 +90,26 @@ namespace Reportman.Reporting
 			metaobj.BackColor = BackColor;
 			metaobj.FontRotation = FontRotation;
 			metaobj.FontStyle = (short)FontStyle;
-			metaobj.FontColor = FontColor;
-			metaobj.Type1Font = Type1Font;
+            metaobj.FontColor = FontColor;
+            metaobj.Type1Font = Type1Font;
 			metaobj.CutText = CutText;
 			metaobj.Transparent = Transparent;
 			metaobj.WordWrap = WordWrap;
-			metaobj.Top = aposy;
+#if HIGHLIGHT       // RONAK - Highlighting feature
+			// Reassign properties if highlight condition true
+			// Note: This code should be after normal properties are assigned from above code
+            if (EvaluateHighlightCondition())
+            {
+                metaobj.WFontNameP = apage.AddString(HighlightFontName);
+                metaobj.WFontNameS = HighlightFontName.Length;
+                metaobj.FontSize = HighlightFontSize;                
+                metaobj.FontStyle = (short)HighlightFontStyle;
+                metaobj.FontColor = HighlightFontColor;
+                metaobj.BackColor = HighlightBackColor;
+                metaobj.Transparent = HighlightTransparent;
+            }
+#endif
+            metaobj.Top = aposy;
 			metaobj.Left = aposx;
 			metaobj.Width = PrintWidth;
 			metaobj.Height = PrintHeight;
@@ -117,7 +131,7 @@ namespace Reportman.Reporting
 			aresult.FontSize = FontSize;
 			aresult.FontRotation = FontRotation;
 			aresult.FontStyle = (short)FontStyle;
-			aresult.Type1Font = Type1Font;
+			aresult.Type1Font = Type1Font;		
 			aresult.FontColor = FontColor;
 			aresult.CutText = CutText;
 			aalign = PrintAlignment | VPrintAlignment;

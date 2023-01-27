@@ -199,6 +199,11 @@ namespace Reportman.Drawing.Forms
                             nform.Height = 600;
                             nform.ShowIcon = false;
                             nform.ShowInTaskbar = false;
+                            
+                            // RONAK - Preview Form Title Text and Center to parent. Added this in ModalForm only as we are using this mode for preview
+                            nform.Text = "Preview";
+                            nform.StartPosition = FormStartPosition.CenterParent;
+
                             nform.Controls.Add(this);
                             try
                             {

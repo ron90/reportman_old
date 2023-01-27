@@ -139,6 +139,61 @@ namespace Reportman.Designer
             lcat.Add(Translator.TranslateStr(1202));
             if (lvalues != null)
                 lvalues.Add(FPrintItemText.FontRotation / 10);
+
+#if HIGHLIGHT       // RONAK - Highlighting feature
+            // Note: New words for highlight are not used from translator resource. Can be added if required
+            //       Property names are used in SetProperty function below. Change there also if it is changed
+
+            // HighlightCondition
+            lnames.Add("Highlight Condition");
+            ltypes.Add(Translator.TranslateStr(571));
+            lhints.Add("refcommontext.html");
+            lcat.Add(Translator.TranslateStr(1202));
+            if (lvalues != null)
+                lvalues.Add(FPrintItemText.HighlightCondition);
+            // Highlight Font Name
+            lnames.Add("Highlight Font Name");
+            ltypes.Add(Translator.TranslateStr(560));
+            lhints.Add("refcommontext.html");
+            lcat.Add(Translator.TranslateStr(1202));
+            if (lvalues != null)
+                lvalues.Add(FPrintItemText.HighlightFontName);
+            // Highlight Font Size
+            lnames.Add("Highlight Font Size");
+            ltypes.Add(Translator.TranslateStr(559));
+            lhints.Add("refcommontext.html");
+            lcat.Add(Translator.TranslateStr(1202));
+            if (lvalues != null)
+                lvalues.Add(FPrintItemText.HighlightFontSize);
+            // Highlight Font Style
+            lnames.Add("Highlight Font Style");
+            ltypes.Add(Translator.TranslateStr(566));
+            lhints.Add("refcommontext.html");
+            lcat.Add(Translator.TranslateStr(1202));
+            if (lvalues != null)
+                lvalues.Add(FPrintItemText.HighlightFontStyle);
+            // Highlight Font Color
+            lnames.Add("Highlight Font Color");
+            ltypes.Add(Translator.TranslateStr(558));
+            lhints.Add("refcommontext.html");
+            lcat.Add(Translator.TranslateStr(1202));
+            if (lvalues != null)
+                lvalues.Add(FPrintItemText.HighlightFontColor);
+            // Highlight Back Color
+            lnames.Add("Highlight Back Color");
+            ltypes.Add(Translator.TranslateStr(558));
+            lhints.Add("refcommontext.html");
+            lcat.Add(Translator.TranslateStr(1202));
+            if (lvalues != null)
+                lvalues.Add(FPrintItemText.HighlightBackColor);
+            // Highlight Transparent
+            lnames.Add("Highlight Transparent");
+            ltypes.Add(Translator.TranslateStr(568));
+            lhints.Add("refcommontext.html");
+            lcat.Add(Translator.TranslateStr(1202));
+            if (lvalues != null)
+                lvalues.Add(FPrintItemText.HighlightTransparent);
+#endif
         }
         public override void GetPropertyValues(string pname, Strings lpossiblevalues)
         {
@@ -369,6 +424,45 @@ namespace Reportman.Designer
                 FPrintItemText.FontRotation = (short)(newvalue * 10);
                 return;
             }
+#if HIGHLIGHT       // RONAK - Highlighting feature
+            // Note: New words for highlight are not used from translator resource. Can be added if required
+            //       Property names are used in GetProperties function above. Change there also if it is changed
+            if (pname == "Highlight Condition")
+            {
+                FPrintItemText.HighlightCondition = newvalue;
+                return;
+            }
+            if (pname == "Highlight Font Name")
+            {
+                FPrintItemText.HighlightFontName = newvalue;
+                return;
+            }
+            if (pname == "Highlight Font Size")
+            {
+                FPrintItemText.HighlightFontSize = newvalue;
+                return;
+            }
+            if (pname == "Highlight Font Style")
+            {
+                FPrintItemText.HighlightFontStyle = newvalue;
+                return;
+            }
+            if (pname == "Highlight Font Color")
+            {
+                FPrintItemText.HighlightFontColor = newvalue;
+                return;
+            }
+            if (pname == "Highlight Back Color")
+            {
+                FPrintItemText.HighlightBackColor = newvalue;
+                return;
+            }
+            if (pname == "Highlight Transparent")
+            {
+                FPrintItemText.HighlightTransparent = newvalue;
+                return;
+            }
+#endif
             // inherited
             base.SetProperty(pname, newvalue);
         }
@@ -447,6 +541,29 @@ namespace Reportman.Designer
             // Font Rotation
             if (pname == Translator.TranslateStr(551))
                 return FPrintItemText.FontRotation / 10;
+#if HIGHLIGHT       // RONAK - Highlighting feature
+            // Highlight Condition
+            if (pname == "Highlight Condition")
+                return FPrintItemText.HighlightCondition;
+            // Highlight Font Name
+            if (pname == "Highlight Font Name")
+                return FPrintItemText.HighlightFontName;
+            // Highlight Font Size
+            if (pname == "Highlight Font Size")
+                return FPrintItemText.HighlightFontSize;
+            // Highlight Font Style
+            if (pname == "Highlight Font Style")
+                return FPrintItemText.HighlightFontStyle;
+            // Highlight Font Color
+            if (pname == "Highlight Font Color")
+                return FPrintItemText.HighlightFontColor;
+            // Highlight Back Color
+            if (pname == "Highlight Back Color")
+                return FPrintItemText.HighlightBackColor;
+            // Highlight Transparent
+            if (pname == "Highlight Transparent")
+                return FPrintItemText.HighlightTransparent;
+#endif
 
             // inherited
             return base.GetProperty(pname);

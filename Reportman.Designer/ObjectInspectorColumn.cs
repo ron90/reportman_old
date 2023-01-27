@@ -263,6 +263,62 @@ namespace Reportman.Designer
             string fontname = "";
             int fstyle = 0;
             int fontsize = 10;
+#if HIGHLIGHT       // RONAK - Highlighting feature 
+            bool CalledFromHighlight = false;
+            switch (GetColumnValue("NAME").ToString())
+            {
+                case "Highlight Font Name":
+                    CalledFromHighlight = true;
+                    break;
+                case "Highlight Font Size":
+                    CalledFromHighlight = true;
+                    break;
+                case "Highlight Font Style":
+                    CalledFromHighlight = true;
+                    break;              
+            }
+
+            string paramFontName, paramFontSize, paramFontStyle;
+            if (CalledFromHighlight)
+            {
+                paramFontName = "Highlight Font Name";
+                paramFontSize = "Highlight Font Size";
+                paramFontStyle = "Highlight Font Style";                
+            }
+            else
+            {
+                paramFontName = Translator.TranslateStr(560);
+                paramFontSize = Translator.TranslateStr(563);
+                paramFontStyle = Translator.TranslateStr(566);
+            }
+
+            for (int i = 0; i < DataGridView.Rows.Count; i++)
+            {
+                string pname = GetColumnValue("NAME", i).ToString();
+                if (pname == paramFontName)
+                {
+                    fontname = GetColumnValue("VALUE", i).ToString();
+                    if (fontname.Length == 0)
+                        fontname = "Arial";
+                }
+                else
+                    if (pname == paramFontSize)
+                {
+                    Variant nvar = (Variant)GetColumnValue("VALUE", i);
+                    if (nvar.IsNull)
+                        nvar = 10;
+                    fontsize = nvar;
+                }
+                else
+                    if (pname == paramFontStyle)
+                {
+                    Variant nvar = (Variant)GetColumnValue("VALUE", i);
+                    if (nvar.IsNull)
+                        nvar = 0;
+                    fstyle = nvar;
+                }
+            }
+#else
             for (int i = 0; i < DataGridView.Rows.Count; i++)
             {
                 string pname = GetColumnValue("NAME", i).ToString();
@@ -289,12 +345,62 @@ namespace Reportman.Designer
                     fstyle = nvar;
                 }
             }
+#endif
             FontStyle nfstyle = GraphicUtils.FontStyleFromInteger(fstyle);
             Font nfont = new Font(fontname, fontsize, nfstyle);
             return nfont;
         }
         private void SetNewFont(string fontname, int fontsize, int fstyle)
         {
+#if HIGHLIGHT       // RONAK - Highlighting feature 
+            bool CalledFromHighlight = false;
+            switch (GetColumnValue("NAME").ToString())
+            {
+                case "Highlight Font Name":
+                    CalledFromHighlight = true;
+                    break;
+                case "Highlight Font Size":
+                    CalledFromHighlight = true;
+                    break;
+                case "Highlight Font Style":
+                    CalledFromHighlight = true;
+                    break;
+            }
+
+            string paramFontName, paramFontSize, paramFontStyle;
+            if (CalledFromHighlight)
+            {
+                paramFontName = "Highlight Font Name";
+                paramFontSize = "Highlight Font Size";
+                paramFontStyle = "Highlight Font Style";
+            }
+            else
+            {
+                paramFontName = Translator.TranslateStr(560);
+                paramFontSize = Translator.TranslateStr(563);
+                paramFontStyle = Translator.TranslateStr(566);
+            }
+
+            for (int i = 0; i < DataGridView.Rows.Count; i++)
+            {
+                string pname = GetColumnValue("NAME", i).ToString();
+                if (pname == paramFontName)
+                {
+                    SetValue(i, fontname);
+                }
+                else
+                    if (pname == paramFontSize)
+                {
+                    SetValue(i, fontsize);
+                }
+                else
+                    if (pname == paramFontStyle)
+                {
+                    SetValue(i, fstyle);
+                }
+            }
+
+#else
             for (int i = 0; i < DataGridView.Rows.Count; i++)
             {
                 string pname = GetColumnValue("NAME", i).ToString();
@@ -308,11 +414,12 @@ namespace Reportman.Designer
                     SetValue(i, fontsize);
                 }
                 else
-                        if (pname == Translator.TranslateStr(566))
+                    if (pname == Translator.TranslateStr(566))
                 {
                     SetValue(i, fstyle);
                 }
             }
+#endif            
         }
         private bool ClickExpression(EllipsisEditingControl sender, ref string expression)
         {
@@ -385,7 +492,11 @@ namespace Reportman.Designer
                 ndialog.Font = new Font(nfont.FontFamily, nfont.Size, nfont.Style);
                 if (ndialog.ShowDialog() == DialogResult.OK)
                 {
-                    SetNewFont(ndialog.Font.FontFamily.ToString(), (int)Math.Round(ndialog.Font.Size), GraphicUtils.IntegerFromFontStyle(ndialog.Font.Style));
+                    // RONAK
+                    //SetNewFont(ndialog.Font.FontFamily.ToString(), (int)Math.Round(ndialog.Font.Size), GraphicUtils.IntegerFromFontStyle(ndialog.Font.Style));
+                    // Above line seems to have a bug. It sets value like [Font Family: Arial] in FontName property, which is undefined when again opened from FontName property
+                    // and Microsoft Sans Serif default font gets selected
+                    SetNewFont(ndialog.Font.Name, (int)Math.Round(ndialog.Font.Size), GraphicUtils.IntegerFromFontStyle(ndialog.Font.Style));
                 }
             }
         }

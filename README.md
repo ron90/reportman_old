@@ -9,7 +9,13 @@ Project upgraded to .Net Framework 4.8
 
 ## Enhancements
 * Added move buttons (left, right, up, down) in designer to precisely move all selected controls (across multiple sections) with snap to grid functionality.
+* Preview Form Title will show text "Preview" when preview is called as ModalForm
+* Added new properties in Label and Expression control for highlighting: Highlight Condition, Hidhlight Font, Highlight Font Color, Highlight Back Color etc. If condition is True Highligth Font properties will be used.
 
+## Corrections
+* After selecting Font Style from Property, the FontName was getting reset to Default OS font. Now it will preserve the selected font.
+* Solved runtime error when multiple Image objects where selected and Image property was null (no image selected in the control)
+* Solved runtime error which occurred onPaint of selection rectangle of (mainly Label) control.
 
 Usage from a NET Core 3.1 Web API
 

@@ -268,8 +268,35 @@ namespace Reportman.Designer
     }
     class RuntimeSquare : Control
     {
+        // RONAK - Solution for 'Parameter is not valid' error in System.Drawing
+        // Runtime error occured when selecting a label control in drawing selection retangle.
+        // Error was on e.Graphics.FillRectangle line in OnPaint event below in this class.
+        // The error stack trace was as below
+        /*
+          System.ArgumentException
+              HResult=0x80070057
+              Message=Parameter is not valid.
+              Source=System.Drawing
+              StackTrace:
+               at System.Drawing.Graphics.CheckErrorStatus(Int32 status)
+               at System.Drawing.Graphics.FillRectangle(Brush brush, Int32 x, Int32 y, Int32 width, Int32 height)
+               at System.Drawing.Graphics.FillRectangle(Brush brush, Rectangle rect)
+               at Reportman.Designer.RuntimeSquare.OnPaint(PaintEventArgs e)
+               at System.Windows.Forms.Control.PaintWithErrorHandling(PaintEventArgs e, Int16 layer)
+               at System.Windows.Forms.Control.WmPaint(Message& m)
+               at System.Windows.Forms.Control.WndProc(Message& m)
+               at System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+               at System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+               at System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+          */
+        // Found a workaroung solution from internet to use SolidBrush instead of system default brush. So, in this class changed code to solidbrush.
+        // https://www.codeproject.com/Questions/723841/Csharp-Parameter-is-not-valid-occur-when-using-Sys
+        // From above Link: Actually the problem is a bug in the .NET Graphics object when you use a brush from System.Drawing.Brushes. Create a new SolidBrush instead and I bet the problem will go away. 
+
         private Pen MyPen;
-        private Brush MyBrush;
+        //private Brush MyBrush;
+        private SolidBrush MySolidBrush;
+
         public RuntimeSquare():base()
         {
             BackColor = SystemColors.WindowText;
@@ -278,18 +305,23 @@ namespace Reportman.Designer
                  ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer |
                  ControlStyles.UserPaint,true);            
             MyPen = new Pen(SystemColors.WindowText);
-            MyBrush = Brushes.White;
+            //MyBrush = Brushes.White;            
+            MySolidBrush = new SolidBrush(Color.White);
         }
         protected override void Dispose(bool disposing)
         {
             MyPen.Dispose();
-            MyBrush.Dispose();
+            //MyBrush.Dispose();
+            MySolidBrush.Dispose();
             base.Dispose(disposing);
         }
         protected override void OnPaint(PaintEventArgs e)
         {
             if ((Width>2 ) && (Height>2))
-                e.Graphics.FillRectangle(MyBrush, new Rectangle(0, 0, Width-1, Height-1));
+            {
+                //e.Graphics.FillRectangle(MyBrush, new Rectangle(0, 0, Width - 1, Height - 1));
+                e.Graphics.FillRectangle(MySolidBrush, new Rectangle(0, 0, Width - 1, Height - 1));
+            }                
             e.Graphics.DrawRectangle(MyPen, new Rectangle(0, 0, Width-1, Height-1));
             base.OnPaint(e);
         }

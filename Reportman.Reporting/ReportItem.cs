@@ -797,10 +797,36 @@ namespace Reportman.Reporting
         /// RightToLeft for arabic texts
         /// </summary>
         public bool RightToLeft;
+#if HIGHLIGHT   // RONAK - Highlighting feature
+        /// <summary>
+        /// Highlight Condition. When this property is not empty, it will be evaluated by the reporting engine.
+        /// If the result is True, then highlight properties: Highlight FontStyle, Highlight FontColor etc. will
+        /// be used instead of its original properties
+        /// </summary>
+        public string HighlightCondition;
+        /// <summary>Font family name used when Highlight Condition is True.</summary>
+        public string HighlightFontName;
+        /// <summary>Font size used when Highlight Condition is True. 72 points=1 inchess</summary>
+		public short HighlightFontSize;
+        /// <summary>
+        /// Font Style used when Highlight Condition is True. Combination of a set of possible effects for the font: bold, italic, underline and strikeout, 
+        /// all the styles are compatible. Internally stored as an Integer
+        /// </summary>
+        public int HighlightFontStyle;
+        /// <summary>
+        /// Font Color used when Highlight Condition is True. internally stored as a quad byte 0x0BGR integer
+        /// </summary>
+        public int HighlightFontColor;
+        /// <summary>Background color used for the printed text when Highlight Condition is True and if Highlight Transparent property is set to false</summary>
+        public int HighlightBackColor;
+        /// <summary>Transperancy used when Highlight Condition is True. If false Highlight background color (Back Color) will be used for the text</summary>
+        public bool HighlightTransparent;
+#endif
+
         /// <summary>
         /// Constructor
         /// </summary>
-		public PrintItemText(BaseReport rp)
+        public PrintItemText(BaseReport rp)
 			: base(rp)
 		{
 			Transparent = true;
@@ -808,7 +834,12 @@ namespace Reportman.Reporting
 			BackColor = 0xFFFFFF;
 			WFontName = "Arial";
 			LFontName = "Helvetica";
-		}
+#if HIGHLIGHT   // RONAK - Highlighting feature
+            HighlightFontName = WFontName;
+            HighlightFontSize = FontSize;
+            HighlightBackColor = 0xFFFFFF;
+#endif
+        }
         /// <summary>
         /// Returns the horizontal alignment converted to an integer value
         /// </summary>
@@ -846,7 +877,35 @@ namespace Reportman.Reporting
 				return aresult;
 			}
 		}
-	}
+
+#if HIGHLIGHT       // RONAK - Highlighting feature
+        /// <summary>
+        /// Highlight Condition
+        /// </summary>
+        /// <returns>Returns true if the highlight condition is entered and evaluates to true</returns>
+        public bool EvaluateHighlightCondition()
+        {
+            if (HighlightCondition.Length == 0)
+                return false;
+            Evaluator fevaluator;
+            bool nresult = false;
+            fevaluator = Report.Evaluator;
+            Variant aresult;
+            try
+            {
+                fevaluator.Expression = HighlightCondition;
+                fevaluator.Evaluate();
+                aresult = fevaluator.Result;
+                nresult = aresult;
+            }
+            catch (Exception E)
+            {
+                throw new ReportException(E.Message + ":" + Name + " Prop:HighlightCondition " + HighlightCondition, this, "HighlightCondition");
+            }
+            return nresult;
+        }
+#endif
+    }
     class ReportItemTypeConverter: ExpandableObjectConverter
     {
         public override PropertyDescriptorCollection GetProperties(ITypeDescriptorContext context, object value, Attribute[] attributes)

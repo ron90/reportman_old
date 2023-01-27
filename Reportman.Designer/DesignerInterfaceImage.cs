@@ -62,29 +62,47 @@ namespace Reportman.Designer
             // DrawStyle
             if (pname == Translator.TranslateStr(667))
             {
-                return (int)FPrintItemImage.DrawStyle;
+                // RONAK - NULL checking added to solve error when multiple Image controls selected
+                if (FPrintItemImage == null)
+                    return 0;
+                else
+                    return (int)FPrintItemImage.DrawStyle;
             }
             // Expression
             if (pname == Translator.TranslateStr(571))
             {
-                return FPrintItemImage.Expression;
+                // RONAK - NULL checking added to solve error when multiple Image controls selected
+                if (FPrintItemImage == null)
+                    return ""; 
+                else
+                    return FPrintItemImage.Expression;
             }
             // Image
             if (pname == Translator.TranslateStr(639))
             {
                 Variant nvar = new Variant();
-                nvar.SetStream(FPrintItemImage.Stream);
+                // RONAK - NULL checking added to solve error when multiple Image controls selected
+                if (FPrintItemImage != null)
+                    nvar.SetStream(FPrintItemImage.Stream);
                 return nvar;
             }
             // DPIRes
             if (pname == Translator.TranslateStr(666))
             {
-                return FPrintItemImage.dpires;
+                // RONAK - NULL checking added to solve error when multiple Image controls selected
+                if (FPrintItemImage == null)
+                    return 0;
+                else
+                    return FPrintItemImage.dpires;
             }
             // Cached
             if (pname == Translator.TranslateStr(1409))
             {
-                return (int)FPrintItemImage.SharedImage;
+                // RONAK - NULL checking added to solve error when multiple Image controls selected
+                if (FPrintItemImage == null)
+                    return 0;   // SharedImageType.None
+                else
+                    return (int)FPrintItemImage.SharedImage;
             }
 
             return base.GetProperty(pname);

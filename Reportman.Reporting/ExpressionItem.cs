@@ -116,6 +116,20 @@ namespace Reportman.Reporting
             aobj.LFontNameS = LFontName.Length;
             aobj.WFontNameP = apage.AddString(WFontName);
             aobj.WFontNameS = WFontName.Length;
+#if HIGHLIGHT       // RONAK - Highlighting feature
+            // Reassign properties if highlight condition true
+            // Note: This code should be after normal properties are assigned from above code
+            if (EvaluateHighlightCondition())
+            {
+                aobj.WFontNameP = apage.AddString(HighlightFontName);
+                aobj.WFontNameS = HighlightFontName.Length;
+                aobj.FontSize = HighlightFontSize;
+                aobj.FontStyle = (short)HighlightFontStyle;
+                aobj.FontColor = HighlightFontColor;
+                aobj.BackColor = HighlightBackColor;
+                aobj.Transparent = HighlightTransparent;
+            }
+#endif
             apage.Objects.Add(aobj);
 
             LastMetaIndex = metafile.Pages[metafile.CurrentPage].Objects.Count - 1;
