@@ -1,3 +1,7 @@
+# Note
+This repository is outdated so use it for reference only.
+Use the official and latest repository at https://github.com/tonimartir/reportman
+
 # reportman
 .Net Project of https://reportman.sourceforge.io
 
